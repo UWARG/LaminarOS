@@ -11,6 +11,9 @@
 
 #include <cstdint>
 
+constexpr uint8_t NUM_GPS_WAYPOINTS = 5;
+constexpr uint8_t NUM_MOTOR_OUTPUTS = 12;
+
 typedef struct Teleop_Instructions_t{
 	float teleop_inp[8]; // deprecated, here just in case
 	// should these individual channels be defined in the link or in zp?
@@ -37,5 +40,49 @@ typedef struct
     float backRightMotorPercent;
 
 } PID_Output_t;
+
+typedef struct GPS_Waypoint_t {
+	float latitude;
+	float longitude;
+	float altitude;
+} GPS_Waypoint_t;
+
+typedef struct Data_From_Ground_t {
+	bool replaceWaypoints;
+	uint8_t GPS_Waypoint_t[NUM_GPS_WAYPOINTS];
+} Data_From_Ground_t;
+
+typedef struct Data_To_Ground_t {
+	float latitude;
+	float longitude;
+	float altitude;
+	float yaw;
+	float pitch;
+	float roll;
+	uint8_t motorOutputs[NUM_MOTOR_OUTPUTS];
+	uint8_t grabberStatus;
+} Data_To_Ground_t;
+
+typedef struct Data_From_CV_t {
+	uint8_t tempNum;
+} Data_From_CV_t;
+
+typedef struct Data_To_CV_t {
+	uint8_t tempNum;
+} Data_To_CV_t;
+
+typedef struct Data_From_AM_t {
+	float latitude;
+	float longitude;
+	float altitude;
+	float yaw;
+	float pitch;
+	float roll;
+	uint8_t motorOutputs[NUM_MOTOR_OUTPUTS];
+} Data_From_AM_t;
+
+typedef struct Data_To_AM_t {
+	uint8_t tempNum;
+} Data_To_AM_t;
 
 #endif /* INC_INTERFACE_DATATYPES_HPP_ */
