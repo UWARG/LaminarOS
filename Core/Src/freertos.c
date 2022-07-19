@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../../AttitudeManager/Inc/AM_Interface.h"
-#include "../../../SensorFusion/Inc/SF_Interface.hpp"
+#include "../../SensorFusion/Inc/SF_Interface.hpp"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
